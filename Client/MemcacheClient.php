@@ -100,6 +100,11 @@ class MemcacheClient implements CacheClientInterface
      */
     public function probeServer($ip, $port)
     {
+        return true;
+        
+        /*
+        disable fsockopen, very bad for process load
+        
         $errno = null;
         $errstr = null;
         $fp = @fsockopen($ip, $port, $errno, $errstr, $this->sockttl);
@@ -111,6 +116,7 @@ class MemcacheClient implements CacheClientInterface
         } else {
             return false;
         }
+        */
     }
 
     /**
